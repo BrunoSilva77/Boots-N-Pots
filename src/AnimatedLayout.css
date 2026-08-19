@@ -1,0 +1,100 @@
+.animated-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Saída - animação atual sai */
+.animated-container.exit.slide-left {
+  animation: slideOutLeft 150ms ease-in-out forwards;
+}
+
+.animated-container.exit.slide-right {
+  animation: slideOutRight 150ms ease-in-out forwards;
+}
+
+.animated-container.exit.slide-none {
+  animation: fadeOut 150ms ease-in-out forwards;
+}
+
+/* Entrada - nova página entra */
+.animated-container.enter.slide-left {
+  animation: slideInRight 150ms ease-in-out forwards;
+}
+
+.animated-container.enter.slide-right {
+  animation: slideInLeft 150ms ease-in-out forwards;
+}
+
+.animated-container.enter.slide-none {
+  animation: fadeIn 150ms ease-in-out forwards;
+}
+
+/* Saída para esquerda */
+@keyframes slideOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-25%) scale(0.98);
+  }
+}
+
+/* Saída para direita */
+@keyframes slideOutRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(25%) scale(0.98);
+  }
+}
+
+/* Fade out */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Entrada pela direita */
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(25%) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Entrada pela esquerda */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-25%) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

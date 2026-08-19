@@ -1,0 +1,151 @@
+.camera-container {
+  height: 100%;
+  background-color: #000;
+}
+
+.camera-preview {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  background: linear-gradient(180deg, #1a3a1a 0%, #0d1f0d 50%, #1a3a1a 100%);
+}
+
+.camera-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.back-button-camera {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.back-button-camera:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.camera-icon-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.camera-instruction {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.guide-frame {
+  width: 280px;
+  height: 280px;
+  align-self: center;
+  position: relative;
+}
+
+.corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-color: #2d7d46;
+}
+
+.corner.top-left {
+  top: 0;
+  left: 0;
+  border-top: 4px solid;
+  border-left: 4px solid;
+  border-top-left-radius: 12px;
+}
+
+.corner.top-right {
+  top: 0;
+  right: 0;
+  border-top: 4px solid;
+  border-right: 4px solid;
+  border-top-right-radius: 12px;
+}
+
+.corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
+  border-bottom-left-radius: 12px;
+}
+
+.corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: 4px solid;
+  border-right: 4px solid;
+  border-bottom-right-radius: 12px;
+}
+
+.camera-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 40px;
+}
+
+.capture-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.capture-text {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.capture-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.capture-button:hover {
+  transform: scale(1.05);
+}
+
+.capture-inner {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  background-color: #2d7d46;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
