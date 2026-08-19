@@ -7,7 +7,7 @@ export default function Welcome() {
   return (
     <div className="welcome-container">
       <div className="welcome-content">
-        <h1 className="welcome-title">FloraGuia - Explore</h1>
+        <h1 className="welcome-title">Boots'N Pots - Explore</h1>
         <h2 className="welcome-subtitle">o Mundo Verde</h2>
         
         <div className="illustration-container">

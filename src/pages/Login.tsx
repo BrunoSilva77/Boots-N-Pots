@@ -18,7 +18,7 @@ export default function Login() {
             <path d="M20 8c-6 0-12 6-12 12s6 12 12 12c2-5 5-8 10-10-2-5-6-8-10-8z" fill="white"/>
             <path d="M20 12c4 0 7 3 7 7s-3 7-7 7c-1-3-3-5-5-7 1-3 3-5 5-7z" fill="#e8f5e9"/>
           </svg>
-          <span className="logo-text">FloraGuia</span>
+          <span className="logo-text">Boots'N Pots</span>
         </div>
         <h1 className="login-title">Entrar na sua</h1>
         <h2 className="login-subtitle">Jornada Botânica</h2>
