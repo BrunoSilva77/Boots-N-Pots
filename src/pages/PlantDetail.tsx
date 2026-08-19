@@ -18,8 +18,6 @@ export default function PlantDetail() {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState('Descrição');
 
-  const currentIndex = navItems.findIndex(item => item.path === location.pathname);
-
   return (
     <div className="detail-container">
       <div className="detail-scroll">
