@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 60px 24px 40px;
+  padding: 40px 24px 40px;
+  background: linear-gradient(180deg, #f0f9f0 0%, #ffffff 100%);
 }
 
 .welcome-content {
@@ -10,72 +11,77 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.welcome-logo {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  margin-bottom: 8px;
 }
 
 .welcome-title {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   color: #1a1a1a;
   text-align: center;
-  margin-bottom: 4px;
-}
-
-.welcome-subtitle {
-  font-size: 28px;
-  font-weight: 700;
-  color: #2d7d46;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.illustration-container {
-  width: 280px;
-  height: 280px;
-  margin-bottom: 40px;
-}
-
-.illustration-container svg {
-  width: 100%;
-  height: 100%;
+  margin-bottom: 8px;
+  margin-top: -10px;
 }
 
 .welcome-description {
-  font-size: 16px;
+  font-size: 15px;
   color: #666;
   text-align: center;
-  line-height: 24px;
+  line-height: 22px;
   margin-bottom: 24px;
+  max-width: 280px;
 }
 
-.pagination-dots {
+.welcome-features {
   display: flex;
-  gap: 8px;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 280px;
 }
 
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #e0e0e0;
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.dot.active {
-  background-color: #2d7d46;
+.feature-icon {
+  font-size: 22px;
+}
+
+.feature-text {
+  font-size: 13px;
+  color: #333;
+  font-weight: 500;
 }
 
 .welcome-button {
   width: 100%;
-  background-color: #2d7d46;
+  background: linear-gradient(135deg, #2d7d46 0%, #236b38 100%);
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
-  padding: 16px;
+  padding: 14px;
   border-radius: 12px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(45, 125, 70, 0.3);
 }
 
 .welcome-button:hover {
-  background-color: #236b38;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(45, 125, 70, 0.4);
 }

@@ -7,34 +7,28 @@ export default function Welcome() {
   return (
     <div className="welcome-container">
       <div className="welcome-content">
-        <h1 className="welcome-title">Boots'N Pots - Explore</h1>
-        <h2 className="welcome-subtitle">o Mundo Verde</h2>
+        <img src="/logoTCC.png" alt="Boots'N Pots Logo" className="welcome-logo" />
         
-        <div className="illustration-container">
-          <svg viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
-            <rect width="280" height="280" fill="#f0f9f0" rx="20"/>
-            <ellipse cx="140" cy="250" rx="80" ry="12" fill="#c8e6c9"/>
-            <rect x="125" y="180" width="30" height="70" fill="#8d6e63" rx="5"/>
-            <circle cx="140" cy="150" r="45" fill="#4caf50"/>
-            <circle cx="110" cy="165" r="28" fill="#66bb6a"/>
-            <circle cx="170" cy="165" r="28" fill="#66bb6a"/>
-            <circle cx="140" cy="125" r="32" fill="#81c784"/>
-            <circle cx="100" cy="145" r="22" fill="#a5d6a7"/>
-            <circle cx="180" cy="145" r="22" fill="#a5d6a7"/>
-            <circle cx="140" cy="100" r="18" fill="#c8e6c9"/>
-          </svg>
-        </div>
+        <h1 className="welcome-title">Bem-vindo ao Boots'N Pots</h1>
         
         <p className="welcome-description">
-          Identifique plantas com uma foto.<br/>
-          Toque, fotografe e descubra!
+          Identifique plantas com uma foto. 
+          Toque, fotografe e descubra o nome e as características de qualquer planta.
         </p>
 
-        <div className="pagination-dots">
-          <span className="dot active"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
+        <div className="welcome-features">
+          <div className="feature-item">
+            <span className="feature-icon">📸</span>
+            <span className="feature-text">Fotografe plantas</span>
+          </div>
+          <div className="feature-item">
+            <span className="feature-icon">🔍</span>
+            <span className="feature-text">Identifique instantaneamente</span>
+          </div>
+          <div className="feature-item">
+            <span className="feature-icon">📚</span>
+            <span className="feature-text">Aprenda sobre cada espécie</span>
+          </div>
         </div>
       </div>
       

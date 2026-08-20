@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import Splash from './pages/Splash';
 import Welcome from './pages/Welcome';
 import Login from './pages/Login';
 import Home from './pages/Home';
@@ -10,7 +11,7 @@ import Profile from './pages/Profile';
 import PlantDetail from './pages/PlantDetail';
 import './AnimatedLayout.css';
 
-const menuOrder = ['/', '/login', '/home', '/search', '/camera', '/collection', '/profile', '/plant-detail'];
+const menuOrder = ['/', '/welcome', '/login', '/home', '/search', '/camera', '/collection', '/profile', '/plant-detail'];
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -49,7 +50,8 @@ function AnimatedRoutes() {
   return (
     <div className={`animated-container slide-${slideDirection} ${transitionStage}`}>
       <Routes location={displayLocation}>
-        <Route path="/" element={<Welcome />} />
+        <Route path="/" element={<Splash />} />
+        <Route path="/welcome" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/search" element={<Search />} />
