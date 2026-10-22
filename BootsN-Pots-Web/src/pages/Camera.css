@@ -1,0 +1,356 @@
+.camera-container {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  background-color: #000;
+  overflow: hidden;
+}
+
+/* No app nativo o preview ocupa a tela inteira atrás da WebView,
+   então o fundo do container fica transparente. */
+.camera-container.native {
+  background: transparent;
+}
+
+.camera-preview {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(180deg, #1a3a1a 0%, #0d1f0d 50%, #1a3a1a 100%);
+}
+
+/* Sem preview nativo (web), a UI fica sobre um fundo escuro; no app, sobre a câmera. */
+.camera-container.native .camera-preview {
+  background: transparent;
+}
+
+.preview-area {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.live-preview {
+  position: absolute;
+  inset: 0;
+}
+
+.preview-loading {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  z-index: 1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.camera-top {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  padding-top: calc(24px + env(safe-area-inset-top));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.back-button-camera {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.back-button-camera:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.camera-icon-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.camera-icon-button.active {
+  background-color: rgba(255, 213, 79, 0.25);
+}
+
+.camera-icon-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.camera-instruction {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.guide-frame {
+  width: min(280px, 68vw);
+  height: min(280px, 68vw);
+  align-self: center;
+  position: relative;
+}
+
+.corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-color: #2d7d46;
+}
+
+.corner.top-left {
+  top: 0;
+  left: 0;
+  border-top: 4px solid;
+  border-left: 4px solid;
+  border-top-left-radius: 12px;
+}
+
+.corner.top-right {
+  top: 0;
+  right: 0;
+  border-top: 4px solid;
+  border-right: 4px solid;
+  border-top-right-radius: 12px;
+}
+
+.corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom: 4px solid;
+  border-left: 4px solid;
+  border-bottom-left-radius: 12px;
+}
+
+.corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: 4px solid;
+  border-right: 4px solid;
+  border-bottom-right-radius: 12px;
+}
+
+.camera-bottom {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 24px;
+  padding-bottom: calc(32px + env(safe-area-inset-bottom));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.capture-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.capture-text {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.capture-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.capture-button:hover {
+  transform: scale(1.05);
+}
+
+.capture-inner {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  background-color: #2d7d46;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.photo-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+.capture-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.capture-button.secondary .capture-inner.secondary {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.capture-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.permission-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  padding: 0 16px;
+}
+
+.permission-box h2 {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.permission-box p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 8px 0;
+  max-width: 280px;
+}
+
+.permission-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 280px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.permission-button.primary {
+  background-color: #2d7d46;
+}
+
+.permission-button:hover {
+  filter: brightness(1.1);
+}
+
+.permission-hint {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 12px !important;
+  max-width: 300px;
+}
+
+/* --- Identificação via API (Pl@ntNet) --- */
+
+.identify-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.72);
+}
+
+.identify-spinner {
+  width: 46px;
+  height: 46px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #a5d6a7;
+  border-radius: 50%;
+  animation: girar 0.9s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.identify-overlay p {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.identify-overlay small {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+  max-width: 260px;
+}
+
+.capture-error {
+  color: #ff8a80;
+  max-width: 240px;
+}
+
+.back-button-camera:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+/* No app nativo o preview da câmera fica atrás da WebView, então os fundos
+   da tela de captura precisam ficar transparentes para a câmera aparecer. */
+body.camera-fullscreen,
+body.camera-fullscreen #root,
+body.camera-fullscreen .animated-container {
+  background: transparent;
+  box-shadow: none;
+}

@@ -1,0 +1,379 @@
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  background-color: white;
+}
+
+.detail-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 200px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.detail-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.detail-image {
+  height: 300px;
+  position: relative;
+  background: linear-gradient(180deg, #e8f5e9 0%, #c8e6c9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.captured-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.back-button {
+  position: absolute;
+  top: 50px;
+  left: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.detail-content {
+  padding: 24px;
+}
+
+.detail-header {
+  margin-bottom: 24px;
+}
+
+.plant-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.scientific-name {
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
+.tabs-container {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 24px;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab.active {
+  color: #2d7d46;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #2d7d46;
+}
+
+.tab-content {
+  margin-bottom: 24px;
+}
+
+.description-text {
+  font-size: 16px;
+  color: #333;
+  line-height: 24px;
+}
+
+.info-section {
+  margin-top: 16px;
+}
+
+.info-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.info-text {
+  font-size: 14px;
+  color: #666;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.recipe-card {
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.recipe-info {
+  flex: 1;
+}
+
+.recipe-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.recipe-desc {
+  font-size: 14px;
+  color: #666;
+}
+
+.recipe-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.detail-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-top: 1px solid #e0e0e0;
+}
+
+.add-button {
+  width: calc(100% - 48px);
+  margin: 16px 24px;
+  padding: 16px;
+  background-color: #2d7d46;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-button:hover {
+  background-color: #236b38;
+}
+
+.detail-bottom .bottom-nav {
+  /* anula o .bottom-nav global (absolute) — aqui a nav fica no fluxo,
+     ABAIXO do botão, dentro do .detail-bottom */
+  position: static;
+  z-index: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 0 24px;
+  background: none;
+  border-top: none;
+}
+
+.detail-bottom .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.detail-bottom .camera-button {
+  position: relative;
+}
+
+.detail-bottom .camera-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #2d7d46;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+/* --- Identificação real (Pl@ntNet + Wikipédia) --- */
+
+.detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.confidence-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  background-color: #e8f5e9;
+  color: #2d7d46;
+  padding: 6px 10px;
+  border-radius: 10px;
+  line-height: 1.1;
+  min-width: 58px;
+}
+
+.confidence-badge strong {
+  font-size: 16px;
+}
+
+.confidence-badge small {
+  font-size: 10px;
+}
+
+.image-credit {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  max-width: 80%;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.45);
+  padding: 3px 8px;
+  border-radius: 10px;
+  text-align: right;
+}
+
+.suggestions-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.suggestions-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #666;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.suggestions-list li span:first-child {
+  font-style: italic;
+}
+
+.suggestion-score {
+  color: #2d7d46;
+  font-weight: 600;
+}
+
+.info-source {
+  margin-top: 14px;
+  font-size: 11px;
+  color: #999;
+}
+
+.empty-note {
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.empty-note p {
+  margin: 0;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.add-button.saved {
+  background-color: #fff;
+  color: #c62828;
+  border: 1.5px solid #ffcdd2;
+}
+
+.add-button.saved:hover {
+  background-color: #ffebee;
+}
+
+.add-button:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+/* ------------------------------------------------------- localização */
+.location-section .info-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #2d7d46;
+}
+
+.map-link {
+  color: #2d7d46;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------------------------------- erro ao salvar */
+.save-error {
+  background: #fdecea;
+  border: 1px solid #f5c6c2;
+  color: #a33a31;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
