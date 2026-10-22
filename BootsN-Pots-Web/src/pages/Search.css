@@ -1,0 +1,301 @@
+.search-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  background-color: #f5f5f5;
+}
+
+.search-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 24px 150px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.search-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.search-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 60px 0 24px;
+}
+
+.search-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.back-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: none;
+  font-size: 16px;
+  color: #1a1a1a;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+.categories {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
+}
+
+.category-btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid #e0e0e0;
+  background: white;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.category-btn.active {
+  background: #2d7d46;
+  color: white;
+  border-color: #2d7d46;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.result-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.result-card:hover {
+  transform: scale(1.01);
+}
+
+.result-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  background-color: #e8f5e9;
+}
+
+.result-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.search-message {
+  font-size: 14px;
+  color: #888;
+  line-height: 1.5;
+  background: white;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-message.error {
+  background: #fdecea;
+  color: #a33a31;
+}
+
+/* ------------------------------------------- seções e filtros */
+.results-group {
+  margin-bottom: 24px;
+}
+
+.results-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2d7d46;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.results-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+.tag-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 2px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  background: #eef7f0;
+  color: #2d7d46;
+}
+
+.tag.receita {
+  background: #fff3e0;
+  color: #b26a00;
+}
+
+.tag.culinaria {
+  background: #e8f5e9;
+  color: #3e7d32;
+}
+
+.tag.aromatica {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.category-btn.suggestion {
+  border-style: dashed;
+}
+
+.result-card.receita {
+  border: 1px solid #ffe0b2;
+  background: #fffdf9;
+}
+
+.result-image.receita {
+  background-color: #fff3e0;
+}
+
+.results-hint {
+  font-size: 12px;
+  color: #999;
+  margin-top: 8px;
+}
+
+.spin {
+  animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.result-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.result-info p {
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+}
+
+.search-container {
+  position: relative;
+}
+
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 0 24px;
+  border-top: 1px solid #e0e0e0;
+  z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.nav-item.active {
+  color: #2d7d46;
+}
+
+.camera-button {
+  position: relative;
+}
+
+.camera-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #2d7d46;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}

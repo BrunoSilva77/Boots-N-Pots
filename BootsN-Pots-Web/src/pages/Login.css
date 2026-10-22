@@ -1,0 +1,268 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 40px 24px;
+  background: linear-gradient(180deg, #f0f9f0 0%, #ffffff 100%);
+}
+
+.login-content {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: -60px;
+}
+
+.login-logo {
+  width: 320px;
+  height: 320px;
+  object-fit: contain;
+  margin-bottom: -40px;
+  position: relative;
+  z-index: 1;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 8px;
+  margin-top: -20px;
+  position: relative;
+  z-index: 2;
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+.login-form {
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+.login-input {
+  width: 100%;
+  padding: 16px 16px 16px 48px;
+  font-size: 16px;
+  color: #1a1a1a;
+  border: 2px solid #e8e8e8;
+  border-radius: 12px;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.login-input:focus {
+  border-color: #2d7d46;
+  background-color: #fafffe;
+}
+
+.login-input::placeholder {
+  color: #999;
+}
+
+.eye-button {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eye-button:hover {
+  color: #666;
+}
+
+.forgot-password {
+  display: block;
+  width: 100%;
+  text-align: right;
+  background: none;
+  border: none;
+  color: #2d7d46;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.forgot-password:hover {
+  color: #236b38;
+}
+
+.login-button {
+  width: 100%;
+  background: linear-gradient(135deg, #2d7d46 0%, #236b38 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(45, 125, 70, 0.3);
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(45, 125, 70, 0.4);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+.login-divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: #e8e8e8;
+}
+
+.login-divider span {
+  padding: 0 16px;
+  color: #999;
+  font-size: 13px;
+}
+
+.social-buttons {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.social-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 2px solid #e8e8e8;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.social-button:hover {
+  border-color: #ccc;
+  background-color: #f9f9f9;
+}
+
+.social-button.google svg {
+  flex-shrink: 0;
+}
+
+.social-button.apple svg {
+  flex-shrink: 0;
+}
+
+.login-footer {
+  text-align: center;
+}
+
+.signup-text {
+  color: #666;
+  font-size: 14px;
+}
+
+.signup-link {
+  color: #2d7d46;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signup-link:hover {
+  color: #236b38;
+}
+
+/* --- Erros e avisos do login real --- */
+
+.login-error {
+  margin: -4px 0 8px;
+  font-size: 13px;
+  color: #c62828;
+  background-color: #ffebee;
+  border: 1px solid #ffcdd2;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.login-notice {
+  margin: -4px 0 8px;
+  font-size: 13px;
+  color: #555;
+  background-color: #f1f8e9;
+  border: 1px solid #dcedc8;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.login-button:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.login-button-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spin {
+  animation: girar-login 0.9s linear infinite;
+}
+
+@keyframes girar-login {
+  to {
+    transform: rotate(360deg);
+  }
+}

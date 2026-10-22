@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boots'N Pots - Documentação do Projeto</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8faf8;
+      color: #1a2e1a;
+      line-height: 1.7;
+      padding: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media print {
+      body { padding: 0; background: #fff; }
+      .page-break { page-break-before: always; }
+      .no-print { display: none; }
+    }
+
+    .header {
+      text-align: center;
+      padding: 60px 40px;
+      background: linear-gradient(135deg, #1a5c2e 0%, #2d8a4e 50%, #4caf50 100%);
+      border-radius: 16px;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+
+    .header .subtitle {
+      font-size: 18px;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+
+    .header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-top: 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    .section {
+      background: #fff;
+      border: 1px solid #e2e8e2;
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a5c2e;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e8f5e9;
+    }
+
+    .section h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: #2d5a3e;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .section p, .section li {
+      font-size: 15px;
+      color: #3a4a3a;
+    }
+
+    .section ul {
+      padding-left: 24px;
+      margin-top: 8px;
+    }
+
+    .section li {
+      margin-bottom: 6px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .info-card {
+      background: #f0f7f0;
+      border-radius: 10px;
+      padding: 18px;
+      border-left: 4px solid #4caf50;
+    }
+
+    .info-card .label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #6a8a6a;
+      letter-spacing: 0.5px;
+    }
+
+    .info-card .value {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a2e1a;
+      margin-top: 4px;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .tech-item {
+      background: #f0f7f0;
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .tech-item .tech-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: #1a5c2e;
+    }
+
+    .tech-item .tech-version {
+      font-size: 12px;
+      color: #6a8a6a;
+      margin-top: 2px;
+    }
+
+    .tech-item .tech-desc {
+      font-size: 12px;
+      color: #8a9a8a;
+      margin-top: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    table th {
+      background: #e8f5e9;
+      color: #1a5c2e;
+      font-weight: 600;
+      text-align: left;
+      padding: 12px 16px;
+    }
+
+    table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid #e8f0e8;
+      color: #3a4a3a;
+    }
+
+    table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .status-ok { background: #e8f5e9; color: #2e7d32; }
+    .status-warn { background: #fff3e0; color: #e65100; }
+    .status-danger { background: #fce4ec; color: #c62828; }
+    .status-info { background: #e3f2fd; color: #1565c0; }
+
+    .screen-card {
+      background: #fafffe;
+      border: 1px solid #e2e8e2;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+
+    .screen-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a5c2e;
+    }
+
+    .screen-card .route {
+      font-family: monospace;
+      font-size: 13px;
+      color: #4caf50;
+      background: #f0f7f0;
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    .screen-card p {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .alert {
+      padding: 16px 20px;
+      border-radius: 10px;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    .alert-warning {
+      background: #fff8e1;
+      border-left: 4px solid #ffc107;
+      color: #6d4c00;
+    }
+
+    .alert-danger {
+      background: #fce4ec;
+      border-left: 4px solid #f44336;
+      color: #7f1d1d;
+    }
+
+    .alert-info {
+      background: #e8f5e9;
+      border-left: 4px solid #4caf50;
+      color: #1b5e20;
+    }
+
+    .problem-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .problem-list li {
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .problem-high {
+      background: #fce4ec;
+      border-left: 4px solid #f44336;
+    }
+
+    .problem-medium {
+      background: #fff3e0;
+      border-left: 4px solid #ff9800;
+    }
+
+    .problem-low {
+      background: #e3f2fd;
+      border-left: 4px solid #2196f3;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      color: #8a9a8a;
+      font-size: 13px;
+    }
+
+    .print-hint {
+      background: #e3f2fd;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #1565c0;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .folder-tree {
+      font-family: monospace;
+      font-size: 13px;
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      line-height: 1.8;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .highlight {
+      color: #1a5c2e;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-hint no-print">
+    Para salvar como PDF: pressione <strong>Ctrl + P</strong> e selecione <strong>"Salvar como PDF"</strong> como destino.
+  </div>
+
+  <div class="header">
+    <h1>Boots'N Pots</h1>
+    <div class="subtitle">Documento de Apresentação do Projeto</div>
+    <div class="badge">TCC - Fatec Aracatuba | 2026</div>
+  </div>
+
+  <!-- SOBRE O PROJETO -->
+  <div class="section">
+    <h2>1. Sobre o Projeto</h2>
+    <p>
+      O <strong>Boots'N Pots</strong> é um aplicativo web voltado para <strong>identificação e catalogação de plantas</strong>,
+      desenvolvido como <strong>Trabalho de Conclusão de Course (TCC)</strong> da Fatec Aracatuba (Centro Paula Souza).
+    </p>
+    <p style="margin-top: 12px;">
+      O app permite que o usuário fotografie plantas pela câmera do celular, identifique a espécie e aprenda sobre
+      seus cuidados, usos medicinais, culinários e dicas de cultivo. Todo o conteúdo está em <strong>português brasileiro</strong>.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="label">Nome do Projeto</div>
+        <div class="value">Boots'N Pots</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Tipo</div>
+        <div class="value">TCC (Trabalho de Graduação)</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Instituição</div>
+        <div class="value">Fatec Aracatuba</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Ano</div>
+        <div class="value">2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUNCIONALIDADES -->
+  <div class="section">
+    <h2>2. Funcionalidades do App</h2>
+    <ul>
+      <li><strong>Captura de fotos</strong> — Tirar foto de plantas pela câmera do celular</li>
+      <li><strong>Identificação de espécies</strong> — Reconhecimento da planta a partir da imagem capturada</li>
+      <li><strong>Catálogo de plantas</strong> — Navegar, buscar e filtrar por categorias (medicinais, culinárias, aromáticas)</li>
+      <li><strong>Informações detalhadas</strong> — Descrição, nomes populares, benefícios, receitas e dicas de cultivo</li>
+      <li><strong>Cuidados com a planta</strong> — Informações de rega, luz solar, temperatura e uso principal</li>
+      <li><strong>Coleções pessoais</strong> — Organizar plantas em coleções (Minhas Plantas, Favoritas, Medicinais)</li>
+      <li><strong>Perfil do usuário</strong> — Estatísticas de plantas identificadas e coleções criadas</li>
+    </ul>
+  </div>
+
+  <!-- PLATAFORMA -->
+  <div class="section">
+    <h2>3. Plataforma</h2>
+    <p>
+      Atualmente o projeto é uma <strong>aplicação web responsiva</strong> construída com foco em experiência mobile.
+      O layout simula um frame de celular (largura máxima de 430px) para testes no navegador.
+    </p>
+    <div class="alert alert-info" style="margin-top: 16px;">
+      <strong>Planejamento futuro:</strong> O app será convertido para <strong>aplicativo mobile nativo</strong> (Android/iOS)
+      utilizando React Native ou Capacitor, mantendo o código React atual como base.
+    </div>
+    <div class="info-grid" style="margin-top: 16px;">
+      <div class="info-card">
+        <div class="label">Status Atual</div>
+        <div class="value">Web (Responsivo)</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Próximo Passo</div>
+        <div class="value">Mobile (Android/iOS)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STACK TÉCNICO -->
+  <div class="section page-break">
+    <h2>4. Stack Técnico (Linguagens e Ferramentas)</h2>
+    <p>Todas as tecnologias utilizadas no desenvolvimento do projeto:</p>
+
+    <div class="tech-grid">
+      <div class="tech-item">
+        <div class="tech-name">React</div>
+        <div class="tech-version">v19.2.8</div>
+        <div class="tech-desc">Framework de UI</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">TypeScript</div>
+        <div class="tech-version">v6.0.2</div>
+        <div class="tech-desc">Linguagem tipada</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">Vite</div>
+        <div class="tech-version">v8.2.0</div>
+        <div class="tech-desc">Build tool / Dev server</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">React Router</div>
+        <div class="tech-version">v7.18.2</div>
+        <div class="tech-desc">Navegação entre páginas</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">Lucide React</div>
+        <div class="tech-version">v1.32.0</div>
+        <div class="tech-desc">Biblioteca de ícones</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">OxLint</div>
+        <div class="tech-version">v1.75.0</div>
+        <div class="tech-desc">Linter (Rust-based)</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">CSS Puro</div>
+        <div class="tech-version">Custom Properties</div>
+        <div class="tech-desc">Estilização</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">Google Fonts</div>
+        <div class="tech-version">Inter (400-800)</div>
+        <div class="tech-desc">Tipografia</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">HTML5</div>
+        <div class="tech-version">Semântico</div>
+        <div class="tech-desc">Estrutura</div>
+      </div>
+    </div>
+
+    <h3>Resumo das Linguagens</h3>
+    <table>
+      <tr>
+        <th>Linguagem / Tecnologia</th>
+        <th>Uso no Projeto</th>
+      </tr>
+      <tr>
+        <td><strong>TypeScript</strong></td>
+        <td>Linguagem principal do frontend — todos os componentes, páginas e configs</td>
+      </tr>
+      <tr>
+        <td><strong>HTML5</strong></td>
+        <td>Estrutura das páginas (via JSX do React)</td>
+      </tr>
+      <tr>
+        <td><strong>CSS3</strong></td>
+        <td>Estilização de todas as páginas (um arquivo .css por página)</td>
+      </tr>
+      <tr>
+        <td><strong>JSON</strong></td>
+        <td>Configurações (tsconfig, vite.config, package.json, .oxlintrc)</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ESTRUTURA DO PROJETO -->
+  <div class="section">
+    <h2>5. Estrutura do Projeto</h2>
+    <div class="folder-tree">BootsN-Pots-Web/
+├── public/                  # Arquivos estáticos (favicon, logo, ícones)
+├── docs/                    # Documentação (este arquivo, README, resumo TCC)
+├── scripts/                 # Scripts de automação Windows (.bat, .ps1)
+├── src/
+│   ├── main.tsx             # Ponto de entrada do React
+│   ├── App.tsx              # Componente raiz + rotas + animações
+│   ├── index.css            # Estilos globais + variáveis CSS
+│   ├── AnimatedLayout.css   # Animações de transição entre páginas
+│   ├── assets/              # Imagens (hero.png, logos)
+│   ├── components/          # (vazio — pendente de extração)
+│   └── pages/               # 9 páginas do app
+│       ├── Splash.tsx/css       # Tela de abertura
+│       ├── Welcome.tsx/css      # Tela de boas-vindas
+│       ├── Login.tsx/css        # Tela de login
+│       ├── Home.tsx/css         # Dashboard principal
+│       ├── Search.tsx/css       # Busca de plantas
+│       ├── Camera.tsx/css       # Interface de câmera
+│       ├── Collection.tsx/css   # Coleções do usuário
+│       ├── Profile.tsx/css      # Perfil do usuário
+│       └── PlantDetail.tsx/css  # Detalhe da planta
+├── package.json             # Dependências e scripts
+├── vite.config.ts           # Configuração do Vite
+├── tsconfig.json            # Configuração do TypeScript
+└── .oxlintrc.json           # Configuração do linter</div>
+  </div>
+
+  <!-- TELAS DO APP -->
+  <div class="section">
+    <h2>6. Telas do Aplicativo</h2>
+
+    <div class="screen-card">
+      <h4>1. Splash Screen</h4>
+      <span class="route">/</span>
+      <p>Tela de abertura com logo animado (pulsação) sobre gradiente verde. Redireciona automaticamente para Welcome após 3 segundos.</p>
+    </div>
+
+    <div class="screen-card">
+      <h4>2. Welcome (Boas-vindas)</h4>
+      <span class="route">/welcome</span>
+      <p>Tela de onboarding mostrando as 3 funcionalidades principais: fotografar, identificar e aprender sobre plantas.</p>
+    </div>
+
+    <div class="screen-card">
+      <h4>3. Login</h4>
+      <span class="route">/login</span>
+      <p>Formulário de email/senha com botões de login social (Google/Apple). <strong>Sem autenticação real ainda.</strong></p>
+    </div>
+
+    <div class="screen-card">
+      <h4>4. Home (Dashboard)</h4>
+      <span class="route">/home</span>
+      <p>Tela principal com saudação personalizada, barra de busca, carrossel de "Últimas Descobertas" e "Plantas Populares".</p>
+    </div>
+
+    <div class="screen-card">
+      <h4>5. Search (Busca)</h4>
+      <span class="route">/search</span>
+      <p>Busca por nome da planta com filtro por categorias (Medicinais, Culinárias, Aromáticas). 8 plantas catalogadas.</p>
+    </div>
+
+    <div class="screen-card">
+      <h4>6. Camera (Câmera)</h4>
+      <span class="route">/camera</span>
+      <p>Interface simulada de câmera com guias verdes. <strong>-sem integração com câmera real do dispositivo.</strong></p>
+    </div>
+
+    <div class="screen-card">
+      <h4>7. Collection (Coleções)</h4>
+      <span class="route">/collection</span>
+      <p>Exibe coleções do usuário: "Minhas Plantas" (8), "Favoritas" (4), "Medicinais" (6). Botão para criar nova coleção.</p>
+    </div>
+
+    <div class="screen-card">
+      <h4>8. Profile (Perfil)</h4>
+      <span class="route">/profile</span>
+      <p>Perfil do usuário com estatísticas (24 plantas, 8 coleções, 12 identificadas) e menu de configurações.</p>
+    </div>
+
+    <div class="screen-card">
+      <h4>9. Plant Detail (Detalhe da Planta)</h4>
+      <span class="route">/plant-detail</span>
+      <p>Abas de Descrição, Usos e Dicas. Sempre mostra a mesma planta (Hortelã-Pimenta). Inclui barra de navegação inferior.</p>
+    </div>
+  </div>
+
+  <!-- ARQUITETURA E PADRÕES -->
+  <div class="section page-break">
+    <h2>7. Arquitetura e Padrões</h2>
+    <ul>
+      <li><strong>Roteamento:</strong> HashRouter (compatível com hosting estático no Render)</li>
+      <li><strong>Transições:</strong> Animações CSS customizadas (slide esquerda/direita/fade) baseadas na ordem das rotas</li>
+      <li><strong>Layout:</strong> Mobile-first com frame de celular simulado (max-width: 430px)</li>
+      <li><strong>Dados:</strong> Todos hardcoded (mock data) — sem backend, sem API, sem banco de dados</li>
+      <li><strong>Estado:</strong> Cada página é isolada com estado local — sem gerenciamento de estado global</li>
+      <li><strong>Estilos:</strong> CSS puro com custom properties — um arquivo CSS por página</li>
+    </ul>
+  </div>
+
+  <!-- PROBLEMAS E PENDÊNCIAS -->
+  <div class="section">
+    <h2>8. Problemas e Pendências</h2>
+    <p>Lista completa dos problemas encontrados durante a revisão do código:</p>
+
+    <h3>Alta Prioridade</h3>
+    <ul class="problem-list">
+      <li class="problem-high">
+        <strong>Componentes não extraídos</strong> — A pasta <code>src/components/</code> está vazia. A barra de navegação inferior (bottom-nav) está duplicada em 5 páginas diferentes e 5 arquivos CSS distintos.
+      </li>
+      <li class="problem-high">
+        <strong>CSS duplicado</strong> — As classes <code>.bottom-nav</code>, <code>.nav-item</code>, <code>.camera-button</code>, <code>.camera-circle</code> estão copiadas idênticas em Home.css, Search.css, Collection.css, Profile.css e PlantDetail.css.
+      </li>
+      <li class="problem-high">
+        <strong>PlantDetail sempre mostra a mesma planta</strong> — independentemente de qual planta o usuário clica, a página sempre exibe "Hortelã-Pimenta". A rota não aceita parâmetros.
+      </li>
+    </ul>
+
+    <h3>Média Prioridade</h3>
+    <ul class="problem-list">
+      <li class="problem-medium">
+        <strong>Sem autenticação real</strong> — O login é apenas navegação. Botões de login social (Google/Apple) não fazem nada.
+      </li>
+      <li class="problem-medium">
+        <strong>Sem integração de câmera</strong> — A página Camera é apenas um mockup visual. Não usa a API <code>getUserMedia()</code> do navegador.
+      </li>
+      <li class="problem-medium">
+        <strong>Sem identificação de plantas</strong> — Apesar de ser o core do app, não existe integração com IA/ML ou API de reconhecimento de imagens.
+      </li>
+      <li class="problem-medium">
+        <strong>Filtro de categorias incompleto</strong> — No Search, os botões de categoria (Medicinais, Culinárias, Aromáticas) só mudam o visual. O filtro real é apenas por texto.
+      </li>
+      <li class="problem-medium">
+        <strong>Sem gerenciamento de estado</strong> — Não existe React Context, Redux, Zustand ou qualquer forma de compartilhar dados entre páginas.
+      </li>
+      <li class="problem-medium">
+        <strong>Dados hardcoded</strong> — "Marina Silva", "marina@email.com", todas as plantas e coleções são dados fixos. Nada vem de um backend.
+      </li>
+    </ul>
+
+    <h3>Baixa Prioridade</h3>
+    <ul class="problem-list">
+      <li class="problem-low">
+        <strong>Scripts com path hardcoded</strong> — O <code>setup.bat</code> usa <code>C:\Users\Usuario\Desktop</code> em vez de <code>C:\Users\User\Desktop</code>, o que falharia nesta máquina.
+      </li>
+      <li class="problem-low">
+        <strong>Sem testes</strong> — Não existe nenhum arquivo de teste, nem bibliotecas de teste nas dependências (Jest, Vitest, React Testing Library).
+      </li>
+      <li class="problem-low">
+        <strong>Link "Cadastre-se" sem handler</strong> — O link de cadastro no Login está estilizado mas não tem função associada.
+      </li>
+    </ul>
+  </div>
+
+  <!-- DEPLOY -->
+  <div class="section">
+    <h2>9. Deploy e Hospedagem</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="label">Plataforma de Deploy</div>
+        <div class="value">Render (Static Site)</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Tipo de Build</div>
+        <div class="value">Estático (Vite build)</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Dev Server</div>
+        <div class="value">localhost:5173 (Vite)</div>
+      </div>
+      <div class="info-card">
+        <div class="label">Scripts de Automação</div>
+        <div class="value">6 scripts Windows (.bat/.ps1)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESUMO -->
+  <div class="section">
+    <h2>10. Resumo</h2>
+    <p>
+      O <strong>Boots'N Pots</strong> é um projeto front-end em <strong>React + TypeScript</strong> que demonstra
+      uma interface polida e bem diseñada para um app de identificação de plantas. A experiência visual está avançada
+      com transições suaves, layout mobile-first e design temático verde/natureza.
+    </p>
+    <p style="margin-top: 12px;">
+      Porém, é um <strong>protótipo estático</strong> — ainda falta implementar: backend, banco de dados, autenticação,
+      integração com câmera real, serviço de identificação por IA, e extrair componentes compartilhados para
+      reduzir a duplicação de código.
+    </p>
+
+    <div class="alert alert-warning" style="margin-top: 16px;">
+      <strong>Próximos passos recomendados:</strong>
+      <ol style="margin-top: 8px; padding-left: 20px;">
+        <li>Extrair componentes compartilhados (BottomNav, PlantCard)</li>
+        <li>Criar React Context para gerenciamento de estado global</li>
+        <li>Integrar API de identificação de plantas (ex: PlantNet, iNaturalist)</li>
+        <li>Implementar autenticação real (JWT + backend)</li>
+        <li>Adicionar testes unitários e de integração</li>
+        <li>Corrigir paths nos scripts de automação</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Boots'N Pots — TCC Fatec Aracatuba — 2026</p>
+    <p style="margin-top: 4px;">Documento gerado automaticamente</p>
+  </div>
+
+</body>
+</html>
